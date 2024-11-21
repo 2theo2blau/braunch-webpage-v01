@@ -1,0 +1,768 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Rockwell', 'Courier New', monospace;
+            overflow-x: hidden;
+            cursor: url('https://i.imgur.com/TQqjkI4.png'), auto; /* Neon middle finger cursor */
+        }
+
+        /* Cursor Trail */
+        .cursor-trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ff0066, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fadeOut 1s forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0d0d0d;
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ff0066;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ccff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://i.imgur.com/Zf6GQBd.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #ff0066;
+            animation: neonGlow 1.5s infinite;
+        }
+
+        .hero p {
+            font-size: 24px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background: #00ccff;
+        }
+
+        @keyframes neonGlow {
+            0%, 100% { text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066; }
+            50% { text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff; }
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #ff0066;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .product {
+            width: 300px;
+            background: #262626;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00ccff;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .product a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .product a:hover {
+            background: #00ccff;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 100px 20px;
+            background: url('https://i.imgur.com/u8fLQjX.jpg') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff0066;
+        }
+
+        .cta p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta a:hover {
+            background: #00ccff;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            padding: 40px 0;
+            text-align: center;
+            color: #666666;
+        }
+
+        footer p {
+            margin-bottom: 20px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        footer .social-icons a {
+            color: #666666;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #ff0066;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .products .product-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .products h2 {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    
+
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raunch by Sydney</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Rockwell', 'Courier New', monospace;
+            overflow-x: hidden;
+            cursor: url('https://i.imgur.com/TQqjkI4.png'), auto; /* Neon middle finger cursor */
+        }
+
+        /* Cursor Trail */
+        .cursor-trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ff0066, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fadeOut 1s forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0d0d0d;
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ff0066;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ccff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://i.imgur.com/Zf6GQBd.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #ff0066;
+            animation: neonGlow 1.5s infinite;
+        }
+
+        .hero p {
+            font-size: 24px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero a:hover {
+            background: #00ccff;
+        }
+
+        @keyframes neonGlow {
+            0%, 100% { text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066; }
+            50% { text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff; }
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #ff0066;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .product {
+            width: 300px;
+            background: #262626;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #00ccff;
+        }
+
+        .product p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .product a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .product a:hover {
+            background: #00ccff;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 100px 20px;
+            background: url('https://i.imgur.com/u8fLQjX.jpg') no-repeat center center/cover;
+            position: relative;
+            text-align: center;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff0066;
+        }
+
+        .cta p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            background: #ff0066;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta a:hover {
+            background: #00ccff;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            padding: 40px 0;
+            text-align: center;
+            color: #666666;
+        }
+
+        footer p {
+            margin-bottom: 20px;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        footer .social-icons a {
+            color: #666666;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        footer .social-icons a:hover {
+            color: #ff0066;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .products .product-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .products h2 {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <!-- Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Tone.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#products">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cta">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Raunch by Sydney</h1>
+            <p>Unleash your wild side with our bold, rodeo-inspired cosmetics.</p>
+            <a href="#products">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="https://i.imgur.com/az9wPjW.jpg" alt="Whiskey-aged Shampoo">
+                <h3>Whiskey-aged Shampoo</h3>
+                <p>Infused with real whiskey extracts for a bold, invigorating cleanse.</p>
+                <a href="#">Buy Now</a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="https://i.imgur.com/HN8QF6j.jpg" alt="Bronco-busting Lipstick">
+                <h3>Bronco-busting Lipstick</h3>
+                <p>A daring shade that lasts all day, no matter how wild the ride.</p>
+                <a href="#">Buy Now</a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="https://i.imgur.com/8ZUQmLs.jpg" alt="Rodeo Glitter Eyeshadow">
+                <h3>Rodeo Glitter Eyeshadow</h3>
+                <p>Shimmering hues that capture the excitement of the arena.</p>
+                <a href="#">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta" id="cta">
+        <div class="cta-content">
+            <h2>Join the Raunch Army</h2>
+            <p>Be a part of our wild journey. Sign up for exclusive offers, events, and updates.</p>
+            <a href="#">Sign Up Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2023 Raunch by Sydney. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling and Interactive Features -->
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cursor Trail
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => document.body.removeChild(trail), 1000);
+        });
+
+        // Stochastic Music Generation with Tone.js
+        const synth = new Tone.Synth().toDestination();
+        const sequence = new Tone.Sequence((time, note) => {
+            synth.triggerAttackRelease(note, '8n', time);
+        }, generateRandomNotes(), '8n').start(0);
+
+        Tone.Transport.bpm.value = 120;
+        Tone.Transport.start();
+
+        function generateRandomNotes() {
+            const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
+            const sequenceLength = 16;
+            const randomNotes = [];
+
+            for (let i = 0; i < sequenceLength; i++) {
+                const randomIndex = Math.floor(Math.random() * notes.length);
+                randomNotes.push(notes[randomIndex]);
+            }
+
+            return randomNotes;
+        }
+    </script>
+</body>
+</html>
+
+
+
+							<script>
+                            	
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cursor Trail
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+            setTimeout(() => document.body.removeChild(trail), 1000);
+        });
+
+        // Stochastic Music Generation with Tone.js
+        const synth = new Tone.Synth().toDestination();
+        const sequence = new Tone.Sequence((time, note) => {
+            synth.triggerAttackRelease(note, '8n', time);
+        }, generateRandomNotes(), '8n').start(0);
+
+        Tone.Transport.bpm.value = 120;
+        Tone.Transport.start();
+
+        function generateRandomNotes() {
+            const notes = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'];
+            const sequenceLength = 16;
+            const randomNotes = [];
+
+            for (let i = 0; i < sequenceLength; i++) {
+                const randomIndex = Math.floor(Math.random() * notes.length);
+                randomNotes.push(notes[randomIndex]);
+            }
+
+            return randomNotes;
+        }
+    
+
+							</script>
+      </body>
+      </html>
+  
